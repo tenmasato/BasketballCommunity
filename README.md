@@ -22,9 +22,9 @@
 
 ## 設計書
 ER図
-<https://drive.google.com/file/d/1e4p0ZirpKX3mOiCgsqs07KpmG1jZE_JC/view?usp=sharing>
+<https://drive.google.com/file/d/1e4p0ZirpKX3mOiCgsqs07KpmG1jZE_JC/view?usp=sharing></br>
 テーブル定義書
-<https://docs.google.com/spreadsheets/d/1l1uMld8COBoeAlJTR8nYZeCNZeryVXIHFm05u7c36WM/edit?usp=sharing>
+<https://docs.google.com/spreadsheets/d/1l1uMld8COBoeAlJTR8nYZeCNZeryVXIHFm05u7c36WM/edit?usp=sharing></br>
 詳細設計
 <https://docs.google.com/spreadsheets/d/1hCMeLUCIoRYeOqKlr-758HCnC9E8GGae2T7JyOpggmc/edit?usp=sharing>
 
