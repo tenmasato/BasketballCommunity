@@ -1,6 +1,8 @@
 <h2>投稿一覧</h2>
 <% @tweets.each do |tweet| %>
+<%= link_to tweet_path(tweet.id) do %>
   <%= attachment_image_tag tweet,:image %>
+<%end%>
   <p>投稿画像: <%= image_tag('no_image.jpg')%></p>
   <p>caption: <%= tweet.caption %></p>
   <p>ユーザーネーム: <%= tweet.user.name %></p>
