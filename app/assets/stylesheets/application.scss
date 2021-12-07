@@ -17,3 +17,12 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+.card{
+  margin: 0 auto 60px;
+  max-width: 376px;
+  heignt: 370px;
+}
+
+.card-body p{
+  text-align: left;
+}

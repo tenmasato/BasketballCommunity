@@ -1,0 +1,17 @@
+ユーザー一覧
+<table>
+  <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= image_tag('no_image.jpg') %></td>
+      <td><%= user.name %></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>

@@ -4,6 +4,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :tweets,dependent: :destroy
+  attachment :profile_image
 
   def name
     last_name + first_name
