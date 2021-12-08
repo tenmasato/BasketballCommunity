@@ -1,0 +1,17 @@
+<div>
+<% @tweet.tweet_comments.each do |tweet_comment | %>
+<%= attachment_image_tag tweet_comment.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", class:"mt-3 rounded-circle"; %>
+<%= tweet_comment.user.name %>
+<%= tweet_comment.comment %>
+<% if tweet_comment.user == current_user %>
+<%= link_to "削除",tweet_tweet_comment_path(tweet_comment.tweet,tweet_comment),method: :delete %>
+<%end%>
+<%end%>
+</div>
+
+<div>
+<%= form_with model:[@tweet,@tweet_comment] do |f| %>
+<%= f.text_area :comment, size:"60x5" %>
+<%= f.submit '送信'%>
+<% end %>
+</div>

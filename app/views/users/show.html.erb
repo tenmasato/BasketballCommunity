@@ -8,13 +8,17 @@
               <div class = "card-body">
                 <div class = "row">
                 <div class = "col-2">
-                   <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"mt-3 rounded-circle"; %>
+                   <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", class:"mt-3 rounded-circle"; %>
                 </div>
                 <div class = "col-12">
                 <p class = "card-text">caption：<%= tweet.caption %></p>
                 <p = "card-time">投稿日時:<%= tweet.created_at.strftime('%Y/%m/%d')%></p>
-                <span><%= render 'favorites/favorite', tweet: tweet%></span>
-                </div>
+                <p>
+                  <%= render 'favorites/favorite', tweet: tweet%> |
+                  <%= link_to tweet_path(tweet) do %>
+                  <i class = "far fa-comment fa-flip-horizontal"></i>コメント件数:<%= tweet.tweet_comments.count %>
+                  <%end%>
+                </p>
                 </div>
               </div>
              </div>
