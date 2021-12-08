@@ -13,6 +13,7 @@
                 <div class = "col-12">
                 <p class = "card-text">caption：<%= tweet.caption %></p>
                 <p = "card-time">投稿日時:<%= tweet.created_at.strftime('%Y/%m/%d')%></p>
+                <span><%= render 'favorites/favorite', tweet: tweet%></span>
                 </div>
                 </div>
               </div>
