@@ -1,1 +1,12 @@
-<%= render 'tweet_comments/comment' %>
+<main class = "container">
+  <%= render 'tweet_comments/comment' %>
+  <div class = "row">
+    <div class = "col-lg-3">
+    <%= form_with model:[@tweet,@tweet_comment] do |f| %>
+    <%= f.text_area :comment, class: "form-control",width: 200, placeholder: "コメントをここに" %>
+    <%= f.submit '送信', class: "btn btn-sm  btn-info mt-3"%>
+    </div>
+    <% end %>
+  </div>
+</main>
+

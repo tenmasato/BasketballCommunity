@@ -1,17 +1,23 @@
-<div>
-<% @tweet.tweet_comments.each do |tweet_comment | %>
-<%= attachment_image_tag tweet_comment.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", class:"mt-3 rounded-circle"; %>
-<%= tweet_comment.user.name %>
-<%= tweet_comment.comment %>
-<% if tweet_comment.user == current_user %>
-<%= link_to "削除",tweet_tweet_comment_path(tweet_comment.tweet,tweet_comment),method: :delete %>
-<%end%>
-<%end%>
+<div class = "d-flex align-items-center p-3 my-3 text-white bg-purple bg-dark rounded shadow-sm">
+<div class = "lh-1">
+  <h1 class = "h5 mb-0 text-white">コメント</h1>
+  </div>
 </div>
 
-<div>
-<%= form_with model:[@tweet,@tweet_comment] do |f| %>
-<%= f.text_area :comment, size:"60x5" %>
-<%= f.submit '送信'%>
-<% end %>
+<div class = "my-3 p-3 bg-body rounded shadow-sm">
+  <h6 class = "border-bottom pb-2 mb-0"></h6>
+  <div class = "d-flex flex-column text-muted pt-3">
+    <% @tweet.tweet_comments.each do |tweet_comment | %>
+    <p class = "pb-3 mb-0 small lh-sm border-bottom">
+      <%= attachment_image_tag tweet_comment.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", class:"mt-3 rounded-circle"; %>
+      <strong class = "d-block text-gray-dark"><%= tweet_comment.user.name %></strong>
+      <%= tweet_comment.comment %>
+      <% if tweet_comment.user == current_user %>
+      <div class = "text-right">
+      <%= link_to "削除",tweet_tweet_comment_path(tweet_comment.tweet,tweet_comment),method: :delete, class: " btn btn-danger fas fa-trash btn-sm" %>
+      </div>
+      <%end%>
+    </p>
+    <%end%>
+  </div>
 </div>
