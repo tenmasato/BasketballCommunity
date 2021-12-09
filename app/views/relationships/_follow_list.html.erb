@@ -1,0 +1,19 @@
+<div class = "d-flex align-items-center justify-content-center mb-5">
+<table>
+    <thead>
+        <tr>
+            <th><%= @user.tweets.count %></th>
+            <th><%= @user.followers.count %></th>
+            <th><%= @user.followings.count %></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>投稿</td>
+            <td>フォロワー</td>
+            <td>フォロー中</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
