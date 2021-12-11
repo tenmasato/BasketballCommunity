@@ -1,0 +1,11 @@
+<h1>バスケットコート登録画面</h1>
+
+<%= form_with model: @map,url:'/admin/maps/',local:true do |f| %>
+<h4>コート名</h4>
+<%= f.text_field :name %>
+<h4>コート説明</h4>
+<%= f.text_area :caption %>
+<h4>住所</h4>
+<%= f.text_field :address, placeholder: "住所" %>
+<%= f.submit "登録する" %>
+<% end %>

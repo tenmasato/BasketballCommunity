@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :maps, only: [:index,:new,:create,:destroy]
+    resources :maps, only: [:index,:new,:show,:create,:destroy]
   end
 end
