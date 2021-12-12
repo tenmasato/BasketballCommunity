@@ -1,5 +1,24 @@
-<%  @maps.each do |map| %>
-<%= map.name %>
-<%= map.caption %>
-<%= map.address %>
-<%end%>
+<%= link_to '投稿',new_admin_map_path %>
+<table class = "table">
+  <thead>
+    <tr>
+      <th>コート名</th>
+      <th>説明</th>
+      <th>住所</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%  @maps.each do |map| %>
+    <tr>
+      <td>
+        <%= link_to admin_map_path(map) do %>
+        <%= map.name %>
+        <%end%>
+      </td>
+      <td><%= map.caption %></td>
+      <td><%= map.address %></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+

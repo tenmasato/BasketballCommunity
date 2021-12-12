@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
-  resources :maps, only: [:index]
+  resources :maps, only: [:index,:show]
   resources :tweets, only: [:new,:create,:index,:show,:destroy]do
     resource :favorites,only: [:create,:destroy]
     resources :tweet_comments,only: [:create,:destroy]
