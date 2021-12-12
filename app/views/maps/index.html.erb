@@ -1,120 +1,62 @@
-<h2>gmap</h2>
 <!-- 地名入力用のinputを追加 -->
 <input id="address" type="textbox" value="東京">
 
 <!-- buttonをクリックしたらcodeAddressを実行　-->
 <input type="button" value="Encode" onclick="codeAddress()">
-<div id='map'>
-</div>
 
-<style>
-#map{
-  height: 400px;
-}
+<div id='map'></div>
+<style type="text/css">
+#map { height: 400px;px;
+      width: 70%;}
 </style>
 
 <script>
-/*
-mapを関数の外で定義(codeAddressでも使うため)
-geocoderを用意
-*/
+  let map
+  let geocoder
+  const display = document.getElementById('display')
+  function initMap(){
+    geocoder = new google.maps.Geocoder()
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 35.68123620000001, lng:139.7671248},
+      zoom: 12,
+    });
 
-let map
-let geocoder
-
-function initMap(){
-  // geocoderを初期化
-  geocoder = new google.maps.Geocoder()
-
-  map = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: 35.68944, lng: 139.69167},
-  zoom: 9
-  });
-
-  marker = new google.maps.Marker({
-    position: {lat: 35.6716486, lng: 139.6952259 },
-    map: map,
-    title: '代々木公園バスケットコート'
-  });
-
-  marker = new google.maps.Marker({
-    position: {lat: 35.69340, lng: 139.70117 },
-    map: map,
-    title: 'Hoop City'
-  });
-
-  marker = new google.maps.Marker({
-    position: {lat: 35.71005, lng: 139.399090 },
-    map: map,
-    title: '昭和記念公園 3on3コート'
-  });
-
-  marker = new google.maps.Marker({
-    position: {lat: 35.65040, lng: 139.50578 },
-    map: map,
-    title: '稲城北緑地公園 バスケットコート'
-  });
-
-
-  marker = new google.maps.Marker({
-    position: {lat: 35.67101, lng: 139.55327 },
-    map: map,
-    title: '神代植物公園 バスケットコート'
-  });
-
-
-  marker = new google.maps.Marker({
-    position: {lat: 35.72504, lng: 139.55605 },
-    map: map,
-    title: 'むくのき公園バスケットコート'
-  });
-
-  marker = new google.maps.Marker({
-    position: {lat: 35.71545, lng: 139.52643 },
-    map: map,
-    title: '小金井公園バスケットコート'
-  });
-
-  marker = new google.maps.Marker({
-    position: {lat: 35.56486, lng: 139.75094 },
-    map: map,
-    title: '森ヶ崎公園バスケットコート'
-  });
-
-  marker = new google.maps.Marker({
-    position: {lat: 35.55590, lng: 139.72495 },
-    map: map,
-    title: '南二くすのき公園バスケットコート'
-  });
-
-  marker = new google.maps.Marker({
-    position: {lat: 35.75780, lng: 139.67411 },
-    map: map,
-    title: '城北中央公園バスケットコート'
-  });
-}
-
-
+//検索フォームのボタンが押された時に実行される
 function codeAddress(){
-  // 入力を取得
+  //検索フォームの入力内容を取得
   let inputAddress = document.getElementById('address').value;
 
-  // geocodingしたあとmapを移動
   geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+    //該当する検索結果がヒットした時に、地図の中心を検索結果の緯度経度に更新する
     if (status == 'OK') {
-　　　　　　　　　　　　// map.setCenterで地図が移動
       map.setCenter(results[0].geometry.location);
-
-　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
       var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
+        map: map,
+        position: results[0].geometry.location
       });
     } else {
-      alert('Geocode was not successful for the following reason: ' + status);
+      //検索結果が何もなかった場合に表示
+      alert('該当する結果がありませんでした：' + status);
     }
   });
 }
+
+<% @maps.each do |m| %>
+(function(){
+  //住所を変数に代入
+  var contentString = "住所：<%= m.address %>";
+  var marker = new google.maps.Marker({
+    position:{lat: <%= m.latitude %>, lng: <%= m.longitude %>},
+    map: map,
+    title: contentString
+
+  });
+
+})();
+<% end %>
+
+  }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMvnKkCHQs0i4WmEQUr0xly_irgbl7SXw&callback=initMap" async defer></script>
+
 

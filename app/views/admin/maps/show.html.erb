@@ -5,6 +5,7 @@
 
 <script type="text/javascript">
   function initMap() {
+//latitude,longitudeから位置を指定
     var test ={lat: <%= @map.latitude %>, lng: <%= @map.longitude %>};
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
@@ -20,7 +21,7 @@
       content: contentString
     });
 
-
+    //Map上の指定した位置にピンを挿して表示する
     var marker = new google.maps.Marker({
         position:test,
         map: map,
