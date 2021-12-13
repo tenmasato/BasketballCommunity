@@ -35,7 +35,7 @@
   }
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMvnKkCHQs0i4WmEQUr0xly_irgbl7SXw&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
 </script>
 <style type="text/css">
   #map { height: 200px;
