@@ -1,4 +1,23 @@
-<h1>コート名</h1>
-<%= @map.name %>
-<%= @map.caption %>
-<%= @map.address %>
+<div class = "container">
+  <div class = "row">
+    <div>
+      <h2><%= @map.name %></h2>
+    </div>
+  </div>
+  <div class = "row">
+    <table class = "table table-bordered">
+        <tr>
+          <th scope = "col" class = "table-warning">名称</th>
+          <td><%= @map.name %></td>
+        </tr>
+        <tr>
+          <th scope = "col" class = "table-warning">詳細</th>
+          <td><%= @map.caption %></td>
+        </tr>
+        <tr>
+          <th scope = "col" class = "table-warning">住所</th>
+          <td><%= @map.address %></td>
+        </tr>
+    </table>
+  </div>
+</div>
