@@ -5,5 +5,7 @@ class MapsController < ApplicationController
 
   def show
     @map = Map.find(params[:id])
+    @map_comment = MapComment.new
   end
+
 end
