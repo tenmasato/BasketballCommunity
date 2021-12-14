@@ -1,21 +1,17 @@
-<div class = "container">
-  <div class = "row">
-    <div>
-      <h2><%= @map.name %></h2>
-    </div>
-  </div>
+<div class = "container mt-5">
+  <h2 class = "text-center"><%= @map.name %></h2>
   <div class = "row">
     <table class = "table table-bordered">
         <tr>
-          <th scope = "col" class = "table-warning">名称</th>
+          <th scope = "col">名称</th>
           <td><%= @map.name %></td>
         </tr>
         <tr>
-          <th scope = "col" class = "table-warning">詳細</th>
+          <th scope = "col">詳細</th>
           <td><%= @map.caption %></td>
         </tr>
         <tr>
-          <th scope = "col" class = "table-warning">住所</th>
+          <th scope = "col">住所</th>
           <td><%= @map.address %></td>
         </tr>
     </table>
