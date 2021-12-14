@@ -1,3 +1,13 @@
+<div class = "container-fluid">
+  <div class = "row">
+    <div class="sidebar col-sm-2 hidden-xs bg-secondary">
+      <p>Sidebar</p>
+      <li><%= link_to "ホーム",root_path, class: "fas fa-home text-light" %></li>
+      <li><%= link_to "投稿",new_tweet_path, class: "fas fa-plus text-light" %></li>
+      <li><%= link_to "お気に入り", root_path, class: "fas fa-star text-light" %></li>
+      <li><%= link_to "コート",maps_path, class: "fas fa-basketball-ball text-light" %></li>
+    </div>
+    <div class = "col-sm-10 col-sm-offset-3">
 <!-- 地名入力用のinputを追加 -->
 <input id="address" type="textbox" value="東京">
 
@@ -6,8 +16,8 @@
 
 <div id='map'></div>
 <style type="text/css">
-#map { height: 400px;
-         width: 70%;}
+#map { height: 600px;
+         width: 100%;}
 </style>
 
 <script>
@@ -72,5 +82,6 @@ function codeAddress(){
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
-
-
+</div>
+ </div>
+</div>
