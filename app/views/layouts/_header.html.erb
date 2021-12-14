@@ -1,21 +1,35 @@
-<% if user_signed_in? %>
-<li>
-  <%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"mt-3 rounded-circle"; %>
-</li>
-<li>
-  <%= current_user.name %>
-</li>
-<li>
-  <%= link_to "マイページ",user_path(current_user.id) %>
-</li>
-<li>
-  <%= link_to "ログアウト",destroy_user_session_path,method: :delete %>
-</li>
-<%else%>
-<li>
-  <%= link_to '新規会員登録',new_user_registration_path %>
-</li>
-<li>
-  <%= link_to 'ログイン',new_user_session_path %>
-</li>
-<%end%>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">BasketballCommunity</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+        <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "マイページ",user_path(current_user.id), class: "nav-link text-light" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログアウト",destroy_user_session_path,method: :delete, class: "nav-link text-light" %>
+        </li>
+        <%else%>
+        <li class="nav-item">
+          <%= link_to '新規会員登録',new_user_registration_path, class: "nav-link text-light" %>
+        </li>
+        <li>
+          <%= link_to 'ログイン',new_user_session_path, class: "nav-link text-light" %>
+        </li>
+        <%end%>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ドロップダウン</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown">
+            <a class="dropdown-item" href="#">リンク1</a>
+            <a class="dropdown-item" href="#">リンク2</a>
+            <a class="dropdown-item" href="#">リンク3</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
