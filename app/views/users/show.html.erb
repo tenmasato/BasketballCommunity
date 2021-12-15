@@ -1,6 +1,6 @@
-<div class = "texts-wrapper">
-    <div class = "contents-title text-center">
-      <h3>タイトル</h3>
+<div class = "container">
+    <div class = "contents-title text-center col-12">
+      <h3>マイページ</h3>
       <%= @user.name %>
       <%= render 'relationships/follow_list'%>
       <% if current_user != @user %>
@@ -12,8 +12,8 @@
       <% end %>
       <div class = "row">
           <% @tweets.each do |tweet| %>
-          <div class ="card" style="width: 20rem;">
-              <%= attachment_image_tag tweet,:image,class: "card-img-top"; %>
+          <div class ="card" style="width: 16rem;">
+              <%= attachment_image_tag tweet,:image,:fill, 250,250,class: "card-img-top"; %>
               <div class = "card-body">
                 <div class = "row">
                 <div class = "col-2">
