@@ -39,7 +39,7 @@
 <% @maps.each do |m| %>
 (function(){
   //住所を変数に代入
-  var contentString = "住所：<%= m.address %>";
+  var contentString = "<%= m.name %>";
 
   //吹き出しの追加
   var infowindow = new google.maps.InfoWindow({

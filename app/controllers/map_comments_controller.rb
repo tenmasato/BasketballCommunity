@@ -1,9 +1,9 @@
 class MapCommentsController < ApplicationController
 
   def create
-    map= Map.find(params[:tweet_id])
-    map_comment = current_user.tweet_comments.new(map_comment_params)
-    map_comment.tweet_id = map.id
+    map= Map.find(params[:map_id])
+    map_comment = current_user.map_comments.new(map_comment_params)
+    map_comment.map_id = map.id
     map_comment.save
     redirect_to request.referer
   end

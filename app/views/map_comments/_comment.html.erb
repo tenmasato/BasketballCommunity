@@ -1,0 +1,25 @@
+<div class = "text-center">コメント(コメント件数：<%= @map.map_comments.count %>)</div>
+<table style = "font-size: 12px" class = "table table-bordered">
+  <thead>
+  <tr>
+    <th>ユーザー</th>
+    <th>コメント</th>
+  </tr>
+  </thead>
+    <tbody>
+      <% @map.map_comments.each do |map_comment| %>
+      <tr height = "60px">
+        <td><%= attachment_image_tag map_comment.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", class:"mt-3 rounded-circle"%><%= map_comment.user.name %></td>
+        <td>
+          <%= map_comment.created_at.strftime('%Y/%m/%d') %><br>
+          <%= map_comment.comment %>
+          <% if map_comment.user == current_user %>
+          <div class = "text-right">
+            <%= link_to "削除",map_map_comment_path(map_comment.map,map_comment),method: :delete, class: " btn btn-danger fas fa-trash btn-sm" %>
+          </div>
+          <%end%>
+        </td>
+      </tr>
+    </tbody>
+    <%end%>
+</table>

@@ -3,17 +3,29 @@
   <div class = "row">
     <table class = "table table-bordered">
         <tr>
-          <th scope = "col">名称</th>
+          <th class = "bg-danger">コート名</th>
           <td><%= @map.name %></td>
         </tr>
         <tr>
-          <th scope = "col">詳細</th>
+          <th class = "bg-danger">詳細</th>
           <td><%= @map.caption %></td>
         </tr>
         <tr>
-          <th scope = "col">住所</th>
+          <th class = "bg-danger">住所</th>
           <td><%= @map.address %></td>
         </tr>
     </table>
   </div>
+  <div class = "row">
+    <div class = "col-5"></div>
+    <div class = "col-7">
+      <%= render 'map_comments/comment' %>
+
+  <%= form_with model:[@map,@map_comment] do |f| %>
+    <%= f.text_area :comment, class: "form-control",width: 200, placeholder: "コメントをここに" %>
+    <%= f.submit '送信', class: "btn btn-sm  btn-info mt-3"%>
+  <%end%>
+    </div>
+  </div>
+
 </div>
