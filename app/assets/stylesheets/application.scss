@@ -26,3 +26,36 @@
 .card-body p{
   text-align: left;
 }
+
+.link-font{
+  color: #3897F0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.denger-link, a.denger-link:hover{
+  font-weight: 600;
+  color: #ed4956;
+  cursor: pointer;
+}
+
+// モーダルの設定
+.modal .modal-dialog.modal-dialog-centered{
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.modal-content{
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  border: 0px;
+  border-radius: 12px;
+}
+.modal-header{
+  padding: 25px;
+  border-bottom: 1px solid #efefef;
+}
+.modal-body{
+  padding: 11px;
+  border-bottom: 1px solid #efefef;
+}
