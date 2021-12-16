@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resource :bookmarks, only: [:create, :destroy]
     resources :map_comments, only: [:create,:destroy]
   end
-  resources :tweets, only: [:new,:create,:index,:show,:edit,:destroy]do
+  resources :tweets, only: [:new,:create,:index,:show,:edit,:destroy,:update]do
     resource :favorites,only: [:create,:destroy]
     resources :tweet_comments,only: [:create,:destroy]
   end
