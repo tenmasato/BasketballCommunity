@@ -10,7 +10,7 @@ class BookmarksController < ApplicationController
 
   def destroy
     @map = Map.find(params[:map_id])
-    bookmark = @map.bookmark.find_by(user_id: current_user.id)
+    bookmark = @map.bookmarks.find_by(user_id: current_user.id)
     bookmark.destroy
     redirect_to request.referer
   end
