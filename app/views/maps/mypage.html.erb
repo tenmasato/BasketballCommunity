@@ -1,0 +1,31 @@
+<div class = "container">
+  <h4 class ="text-center my-5">お気に入りコート</h4>
+<table class = "table table-bordered">
+  <thead class = "bg-warning">
+    <th>コート名</th>
+    <th>詳細</th>
+    <th>住所</th>
+  </thead>
+  <tbody>
+    <% @bookmarks.each do |bookmark| %>
+    <tr>
+      <td>
+        <%= link_to map_path(bookmark.map) do %>
+        <%= bookmark.map.name %>
+        <%end%>
+      </td>
+      <td><%= bookmark.map.caption %></td>
+      <td><%= bookmark.map.address %></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+

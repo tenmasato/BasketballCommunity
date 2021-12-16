@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
+  get 'mypages' => 'maps#mypage',as: 'mypages'
   resources :maps, only: [:index,:show] do
     resource :bookmarks, only: [:create, :destroy]
     resources :map_comments, only: [:create,:destroy]
