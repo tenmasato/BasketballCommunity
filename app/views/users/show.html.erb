@@ -1,7 +1,7 @@
 <div class = "container">
     <div class = "contents-title text-center col-12">
        <h3>ユーザー</h3>
-      <%= @user.name %>
+      <%= @user.name %><%= render 'users/modal' %>
       <%= render 'relationships/follow_list'%>
       <div class = "mb-3">
       <% if current_user != @user %>

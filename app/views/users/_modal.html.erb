@@ -1,0 +1,28 @@
+<!-- この要素をクリックするとモーダルが出現します -->
+<% if @user == current_user %>
+<button   data-toggle="modal" data-target="#exampleModal">
+ <i class = "fas fa-user-cog"></i>
+</button>
+
+<!-- モーダルの設定 -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">設定</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <span class = "link-font">
+           <%= link_to "編集",edit_user_path(@user),class: "text-dark" %>
+          </span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<%end%>
