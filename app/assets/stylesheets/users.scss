@@ -1,3 +1,12 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.fauser{
+  background-color: #c0c0c0;
+  width: 300px;               /* 幅指定 */
+  height: 200px;              /* 高さ指定 */
+  border: solid 2px #000;     /* 枠線指定 */
+  background-color: #eee;     /* 背景色指定 */
+  border-radius: 10px;        /* 角丸指定 */
+}

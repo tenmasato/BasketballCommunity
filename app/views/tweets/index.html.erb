@@ -4,37 +4,9 @@
     <div class ="row">
       <% @tweets.each do |tweet| %>
       <div class = "card" style = "width 16erm;">
-
         <div class = "card-header">
           <%= tweet.user.name %>
-          <% if tweet.user == current_user %>
-          <!-- この要素をクリックするとモーダルが出現します -->
-          <div class = "text-right" data-toggle="modal" data-target="#exampleModal">
-            <i class = "fas fa-align-justify horber"></i>
-          </div>
-          <!-- モーダルの設定 -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title mx-auto" id="exampleModalLabel">投稿を編集</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <span class = "danger-font"><%= link_to "削除",tweet_path(tweet),method: :delete,class: "text-danger" %></span>
-                </div>
-                <div class = "modal-body">
-                  <span class = "link-font"><%= link_to "編集",edit_tweet_path(tweet.id),class: "text-dark" %></span>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary " data-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
-          </div>
-         <%end%>
+          <%= render 'tweets/modal',tweet: tweet%>
         </div>
         <%= link_to tweet_path(tweet.id) do %>
         <%= attachment_image_tag tweet,:image,:fill, 250,250, class: "card-img-top" %>
