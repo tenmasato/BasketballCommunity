@@ -32,16 +32,17 @@
                         <div class="modal-body">
                           <span class = "danger-font">
                             <% if tweet.user == current_user %>
-                            <%= link_to "削除",tweet_path(tweet),method: :delete %>
-                            <%end%>
+                            <%= link_to "削除",tweet_path(tweet),method: :delete,class: "text-danger" %>
                           </span>
                         </div>
                         <div class = "modal-body">
-                          <span class = "link-font"><%= link_to "編集",edit_tweet_path(tweet.id) %></span>
+                          <span class = "link-font">
+                            <%= link_to "編集",edit_tweet_path(tweet.id),class: "text-dark" %>
+                            <%end%>
+                          </span>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
+                          <button type="button" class="btn btn-secondary " data-dismiss="modal">Close</button>
                         </div>
                       </div>
                     </div>

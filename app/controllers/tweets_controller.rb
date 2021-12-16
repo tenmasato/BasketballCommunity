@@ -13,6 +13,9 @@ class TweetsController < ApplicationController
     @tweet_comment = TweetComment.new
   end
 
+  def edit
+  end
+
   def create
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
@@ -23,7 +26,7 @@ class TweetsController < ApplicationController
   def destroy
     @tweet = Tweet.find(params[:id])
     @tweet.destroy
-    redirect_to tweets_path
+    redirect_to request.referer
   end
 
   private

@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
   resources :maps, only: [:index,:show] do
+    resource :bookmarks, only: [:create, :destroy]
     resources :map_comments, only: [:create,:destroy]
   end
-  resources :tweets, only: [:new,:create,:index,:show,:destroy]do
+  resources :tweets, only: [:new,:create,:index,:show,:edit,:destroy]do
     resource :favorites,only: [:create,:destroy]
     resources :tweet_comments,only: [:create,:destroy]
   end

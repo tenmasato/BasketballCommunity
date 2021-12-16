@@ -1,8 +1,25 @@
-<h1>新規投稿</h1>
-<%= form_with model: @tweet,local: true do |f| %>
-<h4>投稿画像</h4>
-<%= f.attachment_field :image %>
-<h4>キャプションを入力しよう</h4>
-<%= f.text_area :caption %>
-<%= f.submit '新規投稿' %>
-<%end%>
+<div classs = "container">
+  <div class = "row no-gutters">
+    <div class = "col-md-7 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h5 class = "text-dark bg-lignt p4 mb-0">新規投稿</h5>
+      <div class = "form-body p-4">
+        <%= form_with model: @tweet,local: true do |f| %>
+        <%= f.attachment_field :image %>
+          <div class = "field">
+            <%= f.label :"captionを書こう"%><br>
+            <%= f.text_area :caption,class: "col-lg form-control" %>
+        </div>
+        <div class = "actions">
+          <%= f.submit '新規投稿',class: "btn btn-info mt-3" %>
+        </div>
+        <%= link_to "キャンセル",user_path(current_user.id),class: "text-danger"%>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
