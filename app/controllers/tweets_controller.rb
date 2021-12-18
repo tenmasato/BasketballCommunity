@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @tweet = Tweet.new
@@ -19,15 +20,21 @@ class TweetsController < ApplicationController
 
   def update
     @tweet = Tweet.find(params[:id])
-    @tweet.update(tweet_params)
-    redirect_to user_path(@tweet.user)
+    if @tweet.update(tweet_params)
+      redirect_to user_path(@tweet.user)
+    else
+    render :edit
+    end
   end
 
   def create
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
-    @tweet.save
-    redirect_to tweets_path
+    if @tweet.save
+      redirect_to tweets_path
+    else
+      render :new
+    end
   end
 
   def destroy
