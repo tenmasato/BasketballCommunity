@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'mypages' => 'maps#mypage',as: 'mypages'
   resources :maps, only: [:index,:show] do
     resource :bookmarks, only: [:create, :destroy]
+    resource :counts, only: [:create,:destroy]
     resources :map_comments, only: [:create,:destroy]
   end
   resources :tweets, only: [:new,:create,:index,:show,:edit,:destroy,:update]do

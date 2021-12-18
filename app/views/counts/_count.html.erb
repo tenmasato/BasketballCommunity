@@ -1,0 +1,7 @@
+ <% if map.counted_by?(current_user) %>
+ <p>現在プレー中のプレイヤー<%= map.counts.count %></p><br>
+  コートからでる
+  <%= link_to map.counts.count, map_counts_path(map), method: :delete, local: true, class: "fa fa-fire " %>
+  <%else%>
+  <%= link_to map.counts.count, map_counts_path(map), method: :post, local: true, class: "fas fa-basketball-ball" %>コートにはいりますか？
+  <%end%>

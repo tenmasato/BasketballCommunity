@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
   has_many :followings, through: :relationships, source: :followed
   has_many :bookmarks,dependent: :destroy
+  has_many :counts,dependent: :destroy
   attachment :profile_image
 
   #フォローしたときの処理

@@ -17,7 +17,23 @@
     </table>
   </div>
   <div class = "row">
-    <div class = "col-6"></div>
+    <div class = "col-6">
+      <%= render 'counts/count',map: @map%>
+      <table>
+  <thead>
+    <tr>
+      <th>プレイヤー</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @counts.each do |count| %>
+      <tr>
+        <td><%= count.user.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+    </div>
     <div class = "col-6">
       <%= render 'map_comments/comment' %>
       <%= form_with model:[@map,@map_comment] do |f| %>
