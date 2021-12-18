@@ -1,7 +1,26 @@
  <% if map.counted_by?(current_user) %>
- <p>現在プレー中のプレイヤー<%= map.counts.count %></p><br>
-  コートからでる
-  <%= link_to map.counts.count, map_counts_path(map), method: :delete, local: true, class: "fa fa-fire " %>
+ <i class = "fas fa-fire fire"></i>
+ 現在プレー中のプレイヤー<%= map.counts.count %>人
+ <i class = "fas fa-fire fire"></i><br>
+  <%= button_to 'コートから出る', map_counts_path(map), method: :delete, local: true, class: "but " %>
   <%else%>
-  <%= link_to map.counts.count, map_counts_path(map), method: :post, local: true, class: "fas fa-basketball-ball" %>コートにはいりますか？
+ <i class = "fas fa-fire fire"></i>
+ 現在プレー中のプレイヤー<%= map.counts.count %>人
+ <i class = "fas fa-fire fire"></i><br>
+  <%= button_to 'コートに入りますか？', map_counts_path(map), method: :post, local: true, class: "fas fa-basketball-ball" %>
   <%end%>
+
+ <table class = "table table-bordered mt-3">
+  <thead>
+   <tr>
+    <th>プレイヤー</th>
+   </tr>
+  </thead>
+  <tbody>
+   <% @counts.each do |count| %>
+   <tr>
+    <td><%= count.user.name %></td>
+   </tr>
+   <% end %>
+  </tbody>
+</table>

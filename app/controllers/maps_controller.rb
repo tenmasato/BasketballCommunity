@@ -7,7 +7,7 @@ class MapsController < ApplicationController
   def show
     @map = Map.find(params[:id])
     @map_comment = MapComment.new
-    @counts = Count.where(user_id: current_user.id)
+    @counts = Count.where(map_id: @map.id)
   end
 
   def mypage
