@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many :counts,dependent: :destroy
   attachment :profile_image
 
+  validates :last_name, presence: true,length: {maximum: 10}
+
   #フォローしたときの処理
   def follow(user_id)
     relationships.create(followed_id: user_id)
@@ -31,6 +33,6 @@ class User < ApplicationRecord
   end
 
   def name
-    last_name + first_name
+    self.last_name + self.first_name
   end
 end

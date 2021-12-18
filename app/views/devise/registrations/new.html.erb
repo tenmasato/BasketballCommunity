@@ -6,9 +6,9 @@
       <%= render "devise/shared/error_messages", resource: resource %>
       <div class = "name-group">
         <%= f.label :"名前" %><br/>
-        <%= f.label :last_name, "(性)" %>
+        <%= f.label :last_name, "(性)", required: true, %>
         <%= f.text_field :last_name, autofocus: true %>
-        <%= f.label :first_name, "(名)" %>
+        <%= f.label :first_name, "(名)", required: true, %>
         <%= f.text_field :first_name %>
       </div>
 
