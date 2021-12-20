@@ -42,7 +42,9 @@
                 <p class = "card-text">caption：<%= tweet.caption %></p>
                 <p = "card-time">投稿日時:<%= tweet.created_at.strftime('%Y/%m/%d')%></p>
                 <p>
-                  <%= render 'favorites/favorite', tweet: tweet%> |
+                  <td class="favorite-btn">
+                  <%= render 'favorites/favorite-btn', tweet: tweet%> |
+                  </td>
                   <%= link_to tweet_path(tweet) do %>
                   <i class = "far fa-comment fa-flip-horizontal"></i>コメント件数:<%= tweet.tweet_comments.count %>
                   <%end%>
@@ -54,5 +56,6 @@
         <%end%>
       </div>
     </div>
+    <%= paginate @tweets %>
   </div>
 
