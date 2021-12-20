@@ -22,9 +22,9 @@
           <p class = "card-text">caption: <%= tweet.caption %></p>
           <p = "card-time">投稿日時:<%= tweet.created_at.strftime('%Y/%m/%d')%></p>
           <p>
-            <td id="favorite_buttons_<%= tweet.id %>">
-            <%= render 'favorites/favorite-btn', tweet: tweet%> |
-            </td>
+            <span id="favorite_buttons_<%= tweet.id %>">
+              <%= render 'favorites/favorite-btn', tweet: tweet%> |
+            </span>
             <%= link_to tweet_path(tweet) do %>
             <i class = "far fa-comment fa-flip-horizontal"></i>コメント件数:<%= tweet.tweet_comments.count %>
             <%end%>
