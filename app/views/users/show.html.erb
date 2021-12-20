@@ -1,6 +1,12 @@
 <div class = "container">
     <div class = "contents-title text-center col-12">
-       <h3>ユーザー</h3>
+      <section id = "sec01">
+        <% if @user == current_user%>
+        <h2><span>My page</span></h2>
+        <%else%>
+        <h2><span>User</span></h2>
+        <%end%>
+      </section>
       <%= @user.name %>
       <% if @user == current_user %>
       <span class = "fauser">
