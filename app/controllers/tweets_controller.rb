@@ -23,7 +23,7 @@ class TweetsController < ApplicationController
     if @tweet.update(tweet_params)
       redirect_to user_path(@tweet.user)
     else
-    render :edit
+      render :edit
     end
   end
 
@@ -46,7 +46,6 @@ class TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.require(:tweet).permit(:image,:caption)
+    params.require(:tweet).permit(:image, :caption)
   end
-
 end

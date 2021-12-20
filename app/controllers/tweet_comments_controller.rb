@@ -1,5 +1,4 @@
 class TweetCommentsController < ApplicationController
-
   def create
     @tweet = Tweet.find(params[:tweet_id])
     @tweet_comment = current_user.tweet_comments.new(tweet_comment_params)
@@ -21,5 +20,4 @@ class TweetCommentsController < ApplicationController
   def tweet_comment_params
     params.require(:tweet_comment).permit(:comment)
   end
-
 end
