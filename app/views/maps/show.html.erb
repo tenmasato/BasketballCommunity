@@ -2,9 +2,9 @@
 <div class = "container mt-5">
   <h2 class = "text-center">
     <%= @map.name %>
-    <div id = "bookmark_buttons_<%= @map.id%>">
+    <span id = "bookmark_buttons_<%= @map.id%>">
       <%= render 'bookmarks/bookmark',map: @map%>
-    </div>
+    </span>
   </h2>
   <div class = "row">
     <table class = "table table-bordered">
