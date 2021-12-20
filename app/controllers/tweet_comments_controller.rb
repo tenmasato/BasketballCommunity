@@ -1,11 +1,14 @@
 class TweetCommentsController < ApplicationController
 
   def create
-    tweet = Tweet.find(params[:tweet_id])
-    tweet_comment = current_user.tweet_comments.new(tweet_comment_params)
-    tweet_comment.tweet_id = tweet.id
-    tweet_comment.save
-    redirect_to request.referer
+    @tweet = Tweet.find(params[:tweet_id])
+    @tweet_comment = current_user.tweet_comments.new(tweet_comment_params)
+    @tweet_comment.tweet_id = @tweet.id
+    if @tweet_comment.save
+      redirect_to request.referer
+    else
+      render 'tweets/show'
+    end
   end
 
   def destroy
