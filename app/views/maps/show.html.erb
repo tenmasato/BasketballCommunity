@@ -28,11 +28,6 @@
     </div>
     <div class = "col-6">
       <%= render 'map_comments/comment' %>
-      <%= paginate @map_comments %>
-      <%= form_with model:[@map,@map_comment],local: true do |f| %>
-      <%= f.text_area :comment, class: "form-control",width: 200, placeholder: "コメントをここに" %>
-      <%= f.submit '送信', class: "btn btn-sm  btn-info mt-3"%>
-      <%end%>
     </div>
   </div>
 </div>

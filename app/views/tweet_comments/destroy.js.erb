@@ -1,0 +1,3 @@
+$("#tweet_<%= @tweet.id %> .comments-count").html("コメント数: <%= @tweet.tweet_comments.count %>");
+$(".tweet_comments").html("<%= j(render 'tweet_comments/comment', tweet: @tweet) %>");
+$("#tweet_comment_comment").val("");

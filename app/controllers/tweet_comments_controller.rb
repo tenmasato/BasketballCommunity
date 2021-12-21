@@ -3,16 +3,13 @@ class TweetCommentsController < ApplicationController
     @tweet = Tweet.find(params[:tweet_id])
     @tweet_comment = current_user.tweet_comments.new(tweet_comment_params)
     @tweet_comment.tweet_id = @tweet.id
-    if @tweet_comment.save
-      redirect_to request.referer
-    else
-      render 'tweets/show'
-    end
+    @tweet_comment.save
   end
 
   def destroy
-    TweetComment.find_by(id: params[:id]).destroy
-    redirect_to request.referer
+    @tweet = Tweet.find(params[:tweet_id])
+  	tweet_comment = @tweet.tweet_comments.find(params[:id])
+  	tweet_comment.destroy
   end
 
   private

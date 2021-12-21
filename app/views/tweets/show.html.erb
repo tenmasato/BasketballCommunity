@@ -1,9 +1,11 @@
 <%= render 'layouts/errors',obj: @tweet_comment %>
 <main class = "container">
-  <%= render 'tweet_comments/comment' %>
+  <div class="tweet_comments">
+  <%= render 'tweet_comments/comment',tweet: @tweet%>
+  </div>
   <div class = "row">
     <div class = "col-lg-3">
-    <%= form_with model:[@tweet,@tweet_comment],local: true do |f| %>
+    <%= form_with model:[@tweet,@tweet_comment] do |f| %>
     <%= f.text_area :comment, class: "form-control",width: 200, placeholder: "コメントをここに" %>
     <%= f.submit '送信', class: "btn btn-sm  btn-info mt-4"%>
     </div>

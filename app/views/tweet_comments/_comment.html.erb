@@ -14,7 +14,7 @@
       <%= tweet_comment.comment %>
       <% if tweet_comment.user == current_user %>
       <div class = "text-right">
-      <%= link_to "削除",tweet_tweet_comment_path(tweet_comment.tweet,tweet_comment),method: :delete, class: " btn btn-danger fas fa-trash btn-sm" %>
+      <%= link_to "削除",tweet_tweet_comment_path(tweet_comment.tweet,tweet_comment),method: :delete,remote: true, class: " btn btn-danger fas fa-trash btn-sm" %>
       </div>
       <%end%>
     </p>

@@ -4,7 +4,9 @@ class CountsController < ApplicationController
   def create
     @map = Map.find(params[:map_id])
     count = @map.counts.new(user_id: current_user.id)
-    redirect_to request.referer, notice: 'コートにはいりました。バスケを楽しんで!!' if count.save
+    if count.save
+    redirect_to request.referer, notice: 'コートにはいりました。バスケを楽しんで!!'
+    end
   end
 
   def destroy
