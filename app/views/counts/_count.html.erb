@@ -2,12 +2,12 @@
  <i class = "fas fa-fire fire"></i>
  現在プレー中のプレイヤー<%= map.counts.count %>人
  <i class = "fas fa-fire fire"></i><br>
-  <%= button_to 'コートから出る', map_counts_path(map), method: :delete, local: true, class: "but " %>
+  <%= button_to 'コートから出る', map_counts_path(map), method: :delete, remote: true, class: "but " %>
   <%else%>
  <i class = "fas fa-fire fire"></i>
  現在プレー中のプレイヤー<%= map.counts.count %>人
  <i class = "fas fa-fire fire"></i><br>
-  <%= button_to 'コートに入りますか？', map_counts_path(map), method: :post, local: true, class: "fas fa-basketball-ball" %>
+  <%= button_to 'コートに入りますか？', map_counts_path(map), method: :post, remote: true, class: "fas fa-basketball-ball" %>
   <%end%>
 
  <table class = "table table-bordered mt-3">
